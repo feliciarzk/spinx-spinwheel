@@ -1,16 +1,90 @@
-# React + Vite
+# SpinX
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SpinX is a modern and interactive wheel spinner web application built with **React** and **Vite**. It helps users randomly select an item from a customizable list, making it perfect for giveaways, classroom activities, games, team decisions, and more.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Live Demo
+https://spinx-spinwheel.vercel.app/
 
-## React Compiler
+---
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Interactive spinning wheel
+- Add unlimited custom items
+- Edit existing items
+- Delete individual items
+- Winner display card
+- Spin history
+- Save & load custom presets
+- Remove winner after each spin
+- Confetti celebration animation
+- Responsive design
+- Modern dark UI
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Preview
+
+<img width="100%" alt="SpinX Preview" src="./preview.png">
+
+> Replace `preview.png` with your application screenshot.
+
+---
+
+## Tech Stack
+
+- React 19
+- Vite
+- JavaScript (ES6+)
+- CSS3
+- React Icons
+- Canvas Confetti
+
+---
+
+## Project Structure
+
+```
+src
+│
+├── components
+│   ├── history
+│   ├── items
+│   ├── layout
+│   ├── ui
+│   ├── wheel
+│   └── winner
+│
+├── App.jsx
+├── main.jsx
+└── index.css
+```
+
+---
+
+## How to Use
+
+1. Add items into the list.
+2. (Optional) Save your list as a preset.
+3. Press **SPIN**.
+4. Wait until the wheel stops.
+5. The selected winner will appear automatically.
+6. Check previous winners in the History panel.
+
+---
+
+## Screenshots
+<img width="1508" height="772" alt="image" src="https://github.com/user-attachments/assets/873dc6cd-2286-46da-9e63-2f3880b84809" />
+
+---
+
+## Author
+
+**Felicia Rizka Putri**
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
