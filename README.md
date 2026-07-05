@@ -24,14 +24,6 @@ https://spinx-spinwheel.vercel.app/
 
 ---
 
-## Preview
-
-<img width="100%" alt="SpinX Preview" src="./preview.png">
-
-> Replace `preview.png` with your application screenshot.
-
----
-
 ## Tech Stack
 
 - React 19
