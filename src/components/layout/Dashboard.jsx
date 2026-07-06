@@ -11,10 +11,11 @@ export default function Dashboard({
   history,
   removeAfterSpin,
   setRemoveAfterSpin,
-
-  // ⭐ NEW
   presets,
   setPresets,
+
+  clearHistory,
+  clearAllItems,
 }) {
   return (
     <div className="dashboard-grid">
@@ -35,16 +36,20 @@ export default function Dashboard({
             items={items}
             setItems={setItems}
             removeAfterSpin={removeAfterSpin}
-            setRemoveAfterSpin={setRemoveAfterSpin}
-
-            // ⭐ NEW
+            setRemoveAfterSpin={
+              setRemoveAfterSpin
+            }
             presets={presets}
             setPresets={setPresets}
+            clearAllItems={clearAllItems}
           />
         </div>
 
         <div className="panel">
-          <History history={history} />
+          <History
+            history={history}
+            clearHistory={clearHistory}
+          />
         </div>
       </div>
     </div>

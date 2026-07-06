@@ -15,17 +15,23 @@ export default function ItemList({
   setRemoveAfterSpin,
   presets,
   setPresets,
+  clearAllItems,
 }) {
   const [input, setInput] = useState("");
-  const [editingIndex, setEditingIndex] = useState(null);
-  const [editValue, setEditValue] = useState("");
-  const [selectedPreset, setSelectedPreset] = useState("Custom");
+  const [editingIndex, setEditingIndex] =
+    useState(null);
+  const [editValue, setEditValue] =
+    useState("");
+  const [selectedPreset, setSelectedPreset] =
+    useState("Custom");
 
   useEffect(() => {
     if (selectedPreset === "Custom") return;
 
     if (presets[selectedPreset]) {
-      setItems([...presets[selectedPreset]]);
+      setItems([
+        ...presets[selectedPreset],
+      ]);
     }
   }, [selectedPreset]);
 
@@ -37,12 +43,14 @@ export default function ItemList({
     setItems([...items, trimmed]);
 
     setInput("");
-
     setSelectedPreset("Custom");
   };
 
   const removeItem = (index) => {
-    setItems(items.filter((_, i) => i !== index));
+    setItems(
+      items.filter((_, i) => i !== index)
+    );
+
     setSelectedPreset("Custom");
   };
 
@@ -112,7 +120,9 @@ export default function ItemList({
 
     if (!ok) return;
 
-    const updated = { ...presets };
+    const updated = {
+      ...presets,
+    };
 
     delete updated[selectedPreset];
 
@@ -123,7 +133,6 @@ export default function ItemList({
 
   return (
     <div>
-
       <h3 className="section-title">
         Items ({items.length})
       </h3>
@@ -133,7 +142,9 @@ export default function ItemList({
           type="checkbox"
           checked={removeAfterSpin}
           onChange={(e) =>
-            setRemoveAfterSpin(e.target.checked)
+            setRemoveAfterSpin(
+              e.target.checked
+            )
           }
         />
         <span>
@@ -142,33 +153,37 @@ export default function ItemList({
       </label>
 
       <div className="add-row">
-
         <select
           className="input"
           value={selectedPreset}
           onChange={(e) =>
-            setSelectedPreset(e.target.value)
+            setSelectedPreset(
+              e.target.value
+            )
           }
         >
           <option value="Custom">
             Custom
           </option>
 
-          {Object.keys(presets).map((key) => (
-            <option
-              key={key}
-              value={key}
-            >
-              {key}
-            </option>
-          ))}
+          {Object.keys(presets).map(
+            (key) => (
+              <option
+                key={key}
+                value={key}
+              >
+                {key}
+              </option>
+            )
+          )}
         </select>
-
       </div>
 
       <div
         className="add-row"
-        style={{ marginBottom: 12 }}
+        style={{
+          marginBottom: 12,
+        }}
       >
         <button
           className="btn-icon"
@@ -192,13 +207,12 @@ export default function ItemList({
           className="input"
           value={input}
           placeholder="Add item..."
-
           onChange={(e) =>
             setInput(e.target.value)
           }
-
           onKeyDown={(e) =>
-            e.key === "Enter" && addItem()
+            e.key === "Enter" &&
+            addItem()
           }
         />
 
@@ -207,6 +221,29 @@ export default function ItemList({
           onClick={addItem}
         >
           <FaPlus />
+        </button>
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          marginTop: "8px",
+          marginBottom: "12px",
+        }}
+      >
+        <button
+          onClick={clearAllItems}
+          style={{
+            border: "none",
+            background: "transparent",
+            color: "#ef4444",
+            fontSize: "0.8rem",
+            fontWeight: "600",
+            cursor: "pointer",
+          }}
+        >
+          Clear Items
         </button>
       </div>
 
@@ -235,10 +272,15 @@ export default function ItemList({
                       )
                     }
                     onKeyDown={(e) => {
-                      if (e.key === "Enter")
+                      if (
+                        e.key === "Enter"
+                      )
                         saveEdit(i);
 
-                      if (e.key === "Escape")
+                      if (
+                        e.key ===
+                        "Escape"
+                      )
                         cancelEdit();
                     }}
                   />
@@ -255,7 +297,9 @@ export default function ItemList({
 
                     <button
                       className="icon-btn"
-                      onClick={cancelEdit}
+                      onClick={
+                        cancelEdit
+                      }
                     >
                       <FaXmark size={12} />
                     </button>

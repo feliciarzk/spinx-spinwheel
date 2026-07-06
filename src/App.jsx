@@ -23,7 +23,6 @@ export default function App() {
     return JSON.parse(localStorage.getItem("spinx-remove")) || false;
   });
 
-  // ⭐ NEW
   const [presets, setPresets] = useState(() => {
     return (
       JSON.parse(localStorage.getItem("spinx-presets")) ||
@@ -32,11 +31,17 @@ export default function App() {
   });
 
   useEffect(() => {
-    localStorage.setItem("spinx-items", JSON.stringify(items));
+    localStorage.setItem(
+      "spinx-items",
+      JSON.stringify(items)
+    );
   }, [items]);
 
   useEffect(() => {
-    localStorage.setItem("spinx-history", JSON.stringify(history));
+    localStorage.setItem(
+      "spinx-history",
+      JSON.stringify(history)
+    );
   }, [history]);
 
   useEffect(() => {
@@ -46,7 +51,6 @@ export default function App() {
     );
   }, [removeAfterSpin]);
 
-  // ⭐ NEW
   useEffect(() => {
     localStorage.setItem(
       "spinx-presets",
@@ -54,7 +58,10 @@ export default function App() {
     );
   }, [presets]);
 
-  const handleWinner = (result, winnerIndex) => {
+  const handleWinner = (
+    result,
+    winnerIndex
+  ) => {
     if (!result) return;
 
     setWinner(result);
@@ -71,9 +78,44 @@ export default function App() {
 
     if (removeAfterSpin) {
       setItems((prev) =>
-        prev.filter((_, i) => i !== winnerIndex)
+        prev.filter(
+          (_, i) => i !== winnerIndex
+        )
       );
     }
+  };
+
+  const clearHistory = () => {
+    const ok = window.confirm(
+      "Clear all history?"
+    );
+
+    if (!ok) return;
+
+    setHistory([]);
+    localStorage.removeItem(
+      "spinx-history"
+    );
+  };
+
+  const clearAllItems = () => {
+    const ok = window.confirm(
+      "Delete all items?"
+    );
+
+    if (!ok) return;
+
+    setItems([]);
+    setWinner(null);
+    setHistory([]);
+
+    localStorage.removeItem(
+      "spinx-items"
+    );
+
+    localStorage.removeItem(
+      "spinx-history"
+    );
   };
 
   return (
@@ -88,9 +130,14 @@ export default function App() {
           setWinner={handleWinner}
           history={history}
           removeAfterSpin={removeAfterSpin}
-          setRemoveAfterSpin={setRemoveAfterSpin}
+          setRemoveAfterSpin={
+            setRemoveAfterSpin
+          }
           presets={presets}
           setPresets={setPresets}
+
+          clearHistory={clearHistory}
+          clearAllItems={clearAllItems}
         />
       </main>
     </div>
