@@ -1,6 +1,8 @@
 # SpinX
 
-SpinX is a modern and interactive wheel spinner web application built with **React** and **Vite**. It helps users randomly select an item from a customizable list, making it perfect for giveaways, classroom activities, games, team decisions, and more.
+SpinX is a modern spin wheel web application that helps users make random selections in a fun and interactive way.
+
+Whether you're choosing a winner for a giveaway, deciding what to eat, selecting study topics, or making team decisions, SpinX provides a fast and engaging experience with customizable presets, history tracking, and persistent storage.
 
 ---
 
@@ -10,18 +12,37 @@ https://spinx-spinwheel.vercel.app/
 ---
 ## Features
 
-- Interactive spinning wheel
-- Add unlimited custom items
+Interactive Spin Wheel
+- Smooth spinning animation
+- Random winner selection
+- Confetti celebration effect
+
+Item Management
+- Add custom items
 - Edit existing items
 - Delete individual items
-- Winner display card
-- Spin history
-- Save & load custom presets
-- Remove winner after each spin
-- Confetti celebration animation
-- Responsive design
-- Modern dark UI
+- Clear all items with one click
 
+Preset System
+- Save custom presets
+- Load saved presets
+- Delete presets
+- Persistent storage via LocalStorage
+
+Winner Tracking
+- Winner result card
+- Spin history log
+- Clear history functionality
+
+Advanced Options
+- Remove winner after spin
+- Unlimited item entries
+- Automatic state persistence
+
+Responsive Design
+- Desktop-friendly layout
+- Mobile responsive interface
+- Modern dark-themed UI
 ---
 
 ## Tech Stack
@@ -71,12 +92,19 @@ src
 
 ---
 
+## Data Persistence
+
+SpinX uses browser LocalStorage to automatically save:
+
+- Current item list
+- Spin history
+- User presets
+- Remove-after-spin preference
+
+Your data remains available even after refreshing the page.
+
+--
+
 ## Author
 
 **Felicia Rizka Putri**
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
